@@ -44,13 +44,17 @@ echo created $redshiftid
 #MATILLION ETL
 
 #Launch Matillion EC2 Instance from the AWS Marketplace
-# TODO
+# TOVERIFY - must use the AMI from your region for Matillion from the marketplace
+echo instance-id=`aws ec2 run-instances --image-id ami-fd85fa98 --count 1 --instance-type m3.large --key-name MyKeyPair --security-group-ids $securityGroupId --subnet-id $subnetid`
+echo $instance-id
 
 #Add an Elastic IP
 echo ipAddress=`aws ec2 allocate-address --domain vpc | jq -r .PublicIp`
 echo $ipAddress
+echo $allocation-id
 
 #Attach the Elastic IP to the Matillion Instance
-# TODO
+# TOVERIFY
+aws ec2 associate-address --instance-id $instance-id --allocation-id $allocation-id
 
 
