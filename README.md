@@ -4,7 +4,7 @@ Scripts, Instructions and Materials for AWS Redshift and Matillion ETL workshop
 ![Redshift Workshop Diagram](/Redshift-Workshop.png)
 
 This Repo details instructions on how to use these artifacts can be found on my blog post about the AWS re:Invent 2015 
-'Build a Data Warehouse in 2 hours using AWS Redshift and AWS Marketplace Big Data Partners'
+'Build a Data Warehouse in 2 hours using AWS Redshift and AWS Marketplace Big Data Partners'. NOTE: We modified (reduced size and complexity) from the original Matillion instructions, so you will have to carefully read the blog post and modify based on the amount and complexity of source data you wish to load and analyze.
 
 What's here
 
