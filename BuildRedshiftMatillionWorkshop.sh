@@ -27,7 +27,7 @@ aws ec2 create-route --route-table-id $routetableId --destination-cidr-block 0.0
 securityGroupId=`aws ec2 describe-security-groups --filters Name=vpc-id,Values=$vpcId | jq .SecurityGroups[0].GroupId -r`
 aws ec2 authorize-security-group-ingress --group-id $securityGroupId  --protocol tcp --port 5439 --cidr 10.0.0.0/16
 
-#REDSHIFT
+# AWS REDSHIFT
 
 #Create a Redshift cluster subnet grp
 echo create the cluster subnet group
@@ -37,11 +37,10 @@ aws redshift create-cluster-subnet-group --cluster-subnet-group-name mysubnetgro
 echo redshiftid =`aws redshift create-cluster --node-type dc1.large  --master-username admin --master-user-password Password1 --cluster-type single-node --cluster-identifier My-Redshift-Cluster --db-name redshift --cluster-subnet-group-name mysubnetgroup | jq .Cluster.ClusterIdentifier -r`
 echo created $redshiftid
 
-
 #Create/alter a security group
 # TODO
 
-#MATILLION ETL
+#MATILLION ETL on AWS EC2 via AWS Marketplace image
 
 #Launch Matillion EC2 Instance from the AWS Marketplace
 # TOVERIFY - must use the AMI from your region for Matillion from the marketplace
